@@ -13,7 +13,7 @@ public interface TemperatureReadingCrudRepository extends CrudRepository<Tempera
     List<TemperatureReading> findAll();
     Optional<TemperatureReading> findById(Integer id);
     boolean existsById(Integer id);
-    Device save(TemperatureReading temperatureReading);
+    TemperatureReading save(TemperatureReading temperatureReading);
     void deleteById(Integer id);
     long count();
 }

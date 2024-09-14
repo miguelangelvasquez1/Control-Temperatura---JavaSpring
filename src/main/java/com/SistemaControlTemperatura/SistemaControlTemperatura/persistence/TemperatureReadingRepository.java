@@ -24,7 +24,7 @@ public class TemperatureReadingRepository {
         return temperatureReadingCrudRepository.existsById(id);
     }
 
-    public Device save(TemperatureReading temperatureReading) {
+    public TemperatureReading save(TemperatureReading temperatureReading) {
         return temperatureReadingCrudRepository.save(temperatureReading);
     }
 

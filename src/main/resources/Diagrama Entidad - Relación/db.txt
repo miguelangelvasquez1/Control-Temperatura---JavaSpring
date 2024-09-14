@@ -1,0 +1,16 @@
+CREATE DATABASE temperature_control;
+USE temperature_control;
+
+CREATE TABLE Device (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    location VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE TemperatureReading (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    temperature DECIMAL(5, 2) NOT NULL,
+    reading_time DATETIME NOT NULL,
+    device_id INT,
+    FOREIGN KEY (device_id) REFERENCES Device(id)
+);
