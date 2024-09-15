@@ -7,10 +7,23 @@ CREATE TABLE Device (
     location VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE TemperatureReading (
+CREATE TABLE Temperature_Reading (
     id INT AUTO_INCREMENT PRIMARY KEY,
     temperature DECIMAL(5, 2) NOT NULL,
     reading_time DATETIME NOT NULL,
     device_id INT,
     FOREIGN KEY (device_id) REFERENCES Device(id)
 );
+
+Llamadas HTTP:
+Para crear o actualizar:
+
+(PUT) http://localhost:8080/api/temperatures/update/3
+{
+  "temperature": "15.1",
+  "readingTime": "2024-09-15T16:20:00",
+  "device": {
+    "id": 1
+  }
+}
+

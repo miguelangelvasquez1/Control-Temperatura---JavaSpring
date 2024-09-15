@@ -15,12 +15,12 @@ public class DeviceController {
     @Autowired
     private DeviceRepository deviceRepository;
 
-    @GetMapping("/devices")
+    @GetMapping("/getAll")
     public List<Device> getAllDevices() {
         return deviceRepository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public Optional<Device> getDeviceById(@PathVariable int id) {
         return deviceRepository.findById(id);
     }
@@ -30,14 +30,14 @@ public class DeviceController {
         return deviceRepository.save(device);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public Device updateDevice(@PathVariable int id, @RequestBody Device device) {
 
         device.setId(id);
         return deviceRepository.save(device);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteDevice(@PathVariable int id) {
 
         deviceRepository.deleteById(id);

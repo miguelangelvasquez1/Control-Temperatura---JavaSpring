@@ -18,6 +18,7 @@ public class Device {
     private String name;
     private String location;
 
-    @OneToMany(mappedBy = "device")
-    private List<TemperatureReading> temperatureReadings;
+    //@OneToMany(mappedBy = "device")
+    //private List<TemperatureReading> temperatureReadings;
+    //Si se descomenta haría un bucle infinito al obtener el objeto
 }

@@ -7,15 +7,17 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
+@Table(name = "TemperatureReading")//JPA convierte camelCase en snake_case
 public class TemperatureReading {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String temperature;
+    private double temperature;
+    @Column(name = "reading_time")
     private LocalDateTime readingTime;
 
     @ManyToOne
-    @JoinColumn(name = "idDevice", insertable = false, updatable = false)
+    @JoinColumn(name = "device_id")
     private Device device;
 }
